@@ -27,6 +27,9 @@ const iniBtn = document.getElementById("ini-btn");
 const finalScore = document.getElementById("final-score");
 const answerBtn = document.querySelectorAll(".answer-btns");
 const answersEl = document.getElementById("answers");
+const scoreList = document.getElementById("score-list");
+const inputText = document.getElementById("input-text");
+const keptScore = []
 const questions = [
   {
     question: "What type of value is true and false?",
@@ -82,6 +85,7 @@ function startQuiz() {
   timerEl.classList.remove("hidden");
   questionsEl.classList.remove("hidden");
   answersEl.classList.remove("hidden");
+  scoreList.classList.add("hidden");
 
   startTimer();
   nextQuestion(questionNum);
@@ -139,14 +143,42 @@ function scoreScreen(){
   input.classList.add("hidden");
   startButton.classList.remove("hidden");
   startButton.innerText = ("Try Again?")
-
+  updateScores();
 
 }
 
-iniBtn.addEventListener("click",scoreScreen)
+function updateScores() {
+  scoreList.innerHTML = "";
+  // Render a new li for each todo
+  for (let i = 0; i < keptScore.length; i++) {
+    let score = keptScore[i];
+
+    let li = document.createElement("li");
+    li.textContent = score;
+    li.setAttribute("data-index", i);
+    scoreList.appendChild(li);
+  }
+}
+
+iniBtn.addEventListener("click",function(){
+  let initials = inputText.value.trim() + " : " + points + " Points.";
+
+  scoreList.classList.remove("hidden");
+  keptScore.push(initials);
+  inputText.value = "";
+  scoreScreen();
+  storeScores();
+});
+
+function storeScores() {
+  localStorage.setItem("keptScore", JSON.stringify(keptScore));
+  
+}
 
 for (let i = 0; i < answerBtn.length; i++) {
   answerBtn[i].addEventListener("click", checkAnswer);
 }
 
 startButton.addEventListener("click", startQuiz);
+
+updateScores();
