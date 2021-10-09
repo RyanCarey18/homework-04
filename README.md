@@ -19,8 +19,8 @@
     I Struggled with the arrays and how to access the content within them. I also struggled with how to find the answer a bit. Function and how to use the parameters you set on them was also a bit of a struggle for me. I believe this homework helped me understand JS better.
 # Link
 Pictures of my Site in action
-[Picture01]](https://github.com/RyanCarey18/homework-04/blob/main/assets/screenshot01.png)
-[Picture02]](https://github.com/RyanCarey18/homework-04/blob/main/assets/screenshot02.png)
-[Picture03]](https://github.com/RyanCarey18/homework-04/blob/main/assets/screenshot03.png)
+[Picture01](https://github.com/RyanCarey18/homework-04/blob/main/assets/screenshot01.png)
+[Picture02](https://github.com/RyanCarey18/homework-04/blob/main/assets/screenshot02.png)
+[Picture03](https://github.com/RyanCarey18/homework-04/blob/main/assets/screenshot03.png)
 
 Click [here](https://ryancarey18.github.io/homework-04/) to go to my deployed page.
