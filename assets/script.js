@@ -1,16 +1,3 @@
-// Step1
-// make button
-
-// when button is clicked pull questions and answers from array Object and start Timer
-
-// when choice is selected check if its correct or Not.
-//     id true then add point to point total and load next questions
-//     if false then remove time from timer and load new questions
-
-//     once no more questions or timer === 0 then load Score alert? and entry for initials
-
-//     once returned then load hiscores and add start button.
-
 let points = 0;
 let questionNum = 0;
 const startButton = document.getElementById("startButton");
@@ -29,7 +16,10 @@ const answerBtn = document.querySelectorAll(".answer-btns");
 const answersEl = document.getElementById("answers");
 const scoreList = document.getElementById("score-list");
 const inputText = document.getElementById("input-text");
-const keptScore = []
+const clrBtn = document.getElementById("clr-btn");
+const recentScores = document.getElementById("recent-scores");
+const lineItems =document.querySelectorAll("li");
+let keptScore = []
 const questions = [
   {
     question: "What type of value is true and false?",
@@ -86,7 +76,7 @@ function startQuiz() {
   questionsEl.classList.remove("hidden");
   answersEl.classList.remove("hidden");
   scoreList.classList.add("hidden");
-
+  recentScores.classList.add("hidden");
   startTimer();
   nextQuestion(questionNum);
 }
@@ -157,17 +147,31 @@ function updateScores() {
     li.setAttribute("data-index", i);
     scoreList.appendChild(li);
   }
+  for (let i = 0; i < lineItems.length; i++ ) {
+
+    lineItems[i].classList.add("center");
+  }
 }
 
 iniBtn.addEventListener("click",function(){
-  let initials = inputText.value.trim() + " : " + points + "%";
-
+  let initials = inputText.value.trim().toUpperCase() + " : " + points + "%";
+  recentScores.classList.remove("hidden");
   scoreList.classList.remove("hidden");
   keptScore.push(initials);
   inputText.value = "";
   scoreScreen();
   storeScores();
 });
+
+function retrievedScores() {
+
+  const retrievedScoresStr = localStorage.getItem("keptScore");
+  keptScore = JSON.parse(retrievedScoresStr);
+  if (!keptScore) {
+    keptScore = [];
+  }
+  
+}
 
 function storeScores() {
   localStorage.setItem("keptScore", JSON.stringify(keptScore));
@@ -178,6 +182,7 @@ for (let i = 0; i < answerBtn.length; i++) {
   answerBtn[i].addEventListener("click", checkAnswer);
 }
 
+
 startButton.addEventListener("click", startQuiz);
 
-updateScores();
+retrievedScores();

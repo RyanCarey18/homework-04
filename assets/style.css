@@ -23,9 +23,9 @@ header {
 }
 
 #score-list {
-    margin: 0 auto;
+    display: inline-block;
 }
 
-.center {
-    color:blue
+#recent-scores {
+    text-align: center;
 }
