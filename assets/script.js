@@ -152,6 +152,7 @@ function updateScores() {
   // Render a new li for each todo
   for (let i = 0; i < keptScore.length; i++) {
     let score = keptScore[i];
+    let allLists = document.querySelectorAll("li");
 
     let li = document.createElement("li");
     li.textContent = score;

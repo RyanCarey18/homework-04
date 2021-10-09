@@ -7,7 +7,6 @@ header {
 }
 
 .quiz {
-    justify-content: ;
     text-align: center;
 }
 
@@ -21,4 +20,12 @@ header {
 
 #input {
     text-align: center;
+}
+
+#score-list {
+    margin: 0 auto;
+}
+
+.center {
+    color:blue
 }
