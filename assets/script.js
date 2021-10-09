@@ -120,7 +120,7 @@ function startTimer() {
 function checkAnswer(e) {
 e.target.setAttribute("data-answer",questions[questionNum].answer)
 if (questions[questionNum].answer === e.target.innerText) {
-  points++;
+  points+=25;
   questionNum++;
   nextQuestion(questionNum);
 }
@@ -152,8 +152,6 @@ function updateScores() {
   // Render a new li for each todo
   for (let i = 0; i < keptScore.length; i++) {
     let score = keptScore[i];
-    let allLists = document.querySelectorAll("li");
-
     let li = document.createElement("li");
     li.textContent = score;
     li.setAttribute("data-index", i);
@@ -162,7 +160,7 @@ function updateScores() {
 }
 
 iniBtn.addEventListener("click",function(){
-  let initials = inputText.value.trim() + " : " + points + " Points.";
+  let initials = inputText.value.trim() + " : " + points + "%";
 
   scoreList.classList.remove("hidden");
   keptScore.push(initials);
