@@ -1,0 +1,24 @@
+header {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.quiz {
+    justify-content: ;
+    text-align: center;
+}
+
+.btn {
+   color: white;
+   background-color: blueviolet;
+   border-radius: 5px;
+   width: 150px;
+   height: 25px;
+}
+
+#input {
+    text-align: center;
+}
